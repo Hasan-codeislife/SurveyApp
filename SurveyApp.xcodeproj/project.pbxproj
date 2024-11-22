@@ -25,6 +25,23 @@
 		444D695E2CEB905F006ACDCE /* SurveyAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SurveyAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		444D6ADE2CEF645B006ACDCE /* Exceptions for "SurveyAppTests" folder in "SurveyApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Mock/MockJSONs/get_questions.json,
+			);
+			target = 444D694D2CEB905E006ACDCE /* SurveyApp */;
+		};
+		444D6ADF2CEF645B006ACDCE /* Exceptions for "SurveyAppTests" folder in "SurveyAppTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Mock/MockJSONs/get_questions.json,
+			);
+			target = 444D695D2CEB905F006ACDCE /* SurveyAppTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		444D69502CEB905E006ACDCE /* SurveyApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -33,6 +50,10 @@
 		};
 		444D69612CEB905F006ACDCE /* SurveyAppTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				444D6ADE2CEF645B006ACDCE /* Exceptions for "SurveyAppTests" folder in "SurveyApp" target */,
+				444D6ADF2CEF645B006ACDCE /* Exceptions for "SurveyAppTests" folder in "SurveyAppTests" target */,
+			);
 			path = SurveyAppTests;
 			sourceTree = "<group>";
 		};
@@ -268,6 +289,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -324,6 +346,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

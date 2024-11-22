@@ -37,6 +37,6 @@ protocol Routable {
 extension Routable {
     
     var baseURLString: String {
-        return ""
+        return "https://xm-assignment.web.app/"
     }
 }

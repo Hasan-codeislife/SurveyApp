@@ -8,7 +8,6 @@
 import Foundation
 
 extension URLRequest {
-    
     init(requestURL: URL, method: APIMethod, header: [String: String]?, body: Any?) {
         self.init(url: requestURL)
         self.timeoutInterval = 30.0
