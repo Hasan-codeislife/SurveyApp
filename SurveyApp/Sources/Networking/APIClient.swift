@@ -18,7 +18,7 @@ final class APIClientURLSession: APIClientProtocol {
         do {
             let (data, response) = try await URLSession.shared.data(for: request)
             guard let response = response as? HTTPURLResponse else {
-                throw MyError.unknown
+                throw MyError.apiResponseError
             }
             return .success((data: data, response: response))
         } catch(let error) {
