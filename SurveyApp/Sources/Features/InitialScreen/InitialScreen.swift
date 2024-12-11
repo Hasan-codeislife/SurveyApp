@@ -57,7 +57,7 @@ private struct ProgressIndicator: View {
 }
 
 private struct NavigationDestinationView: View {
-    let questions: [Question]?
+    let questions: IdentifiedArrayOf<Question>?
     
     var body: some View {
         if let questions = questions {

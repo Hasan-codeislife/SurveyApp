@@ -11,7 +11,7 @@ import Foundation
 final class MockSurveyService: SurveyServiceProtocol, @unchecked Sendable {
     
     var shouldSucceed = true
-    func getQuestions() throws -> [Question] {
+    func getQuestions() throws -> [IdentifiedArrayOf<Question> {
         if shouldSucceed {
             return MockData.mockQuestions
         }

@@ -11,7 +11,7 @@ class QuestionsScreenReducer: Reducer {
     
     @ObservableState
     struct State: Equatable {
-        var questions: [Question]
+        var questions: IdentifiedArrayOf<Question>
         var currentIndex: Int = 0
         
         var submittedCount: Int {

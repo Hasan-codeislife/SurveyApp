@@ -14,13 +14,14 @@ class InitialScreenReducer: Reducer {
         var isLoading: Bool = false
         var errorMessage: String? = nil
         var shouldStartSurvey: Bool = false
-        var questions: [Question]? = nil
+        var questions: IdentifiedArrayOf<Question>? = nil
     }
     
     @CasePathable
     enum Action {
         case fetchQuestions
-        case fetchQuestionsResponse(Result<[Question], MyError>)
+        case fetchQuestionsResponse(Result<IdentifiedArrayOf<Question>, MyError>)
+        case setQuestions(IdentifiedArrayOf<Question>)
         case startSurvey
         case surveyDismiss
     }
@@ -38,6 +39,10 @@ class InitialScreenReducer: Reducer {
             
         case .fetchQuestionsResponse(let result):
             return handleFetchQuestionsResponse(result, &state)
+            
+        case .setQuestions(let questions):
+            state.questions = IdentifiedArray(uniqueElements: questions)
+            return .send(.startSurvey)
             
         case .startSurvey:
             return startSurvey(&state)
@@ -63,18 +68,17 @@ class InitialScreenReducer: Reducer {
     }
     
     // Handling response of fetched questions
-    private func handleFetchQuestionsResponse(_ result: Result<[Question], MyError>, _ state: inout State) -> Effect<Action> {
+    private func handleFetchQuestionsResponse(_ result: Result<IdentifiedArrayOf<Question>, MyError>, _ state: inout State) -> Effect<Action> {
         state.isLoading = false
         switch result {
         case .success(let questions):
             
             // TODO: Add an empty screen action here instead of simply returning
-            if questions.count == 0 {
+            if questions.isEmpty {
                 return .none
             }
             
-            state.questions = questions
-            return .send(.startSurvey)
+            return .send(.setQuestions(questions))
         case .failure(let error):
             state.errorMessage = error.localizedDescription
             return .none

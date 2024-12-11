@@ -9,7 +9,7 @@
 import Foundation
 
 enum MockData {
-    static let mockQuestions: [Question] = [
+    static let mockQuestions: IdentifiedArrayOf<Question> = [
         Question(id: 0, question: "What is your favorite color?"),
         Question(id: 1, question: "How many continents are there on Earth?")
     ]

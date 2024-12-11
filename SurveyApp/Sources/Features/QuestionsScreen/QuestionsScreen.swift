@@ -49,7 +49,7 @@ struct QuestionsScreen: View {
 }
 
 private struct QuestionCarousel: View {
-    let questions: [Question]
+    let questions: IdentifiedArrayOf<Question>
     let currentIndexBinding: Binding<Int>
     let isLoading: Bool
     let onSubmit: (Int, String) -> Void
@@ -95,7 +95,8 @@ private struct NavigationToolbar: ToolbarContent {
 }
 
 #Preview {
-    let mockQuestions: [Question] = [
+    
+    let mockQuestions: IdentifiedArrayOf<Question> = [
         Question(id: 1, question: "What is your favorite color?"),
         Question(id: 2, question: "How many continents are there on Earth?"),
         Question(id: 3, question: "What is the capital of France?")

@@ -5,8 +5,10 @@
 //  Created by Hassan Personal on 18.11.24.
 //
 
+import ComposableArchitecture
+
 protocol SurveyServiceProtocol: Sendable {
-    func getQuestions() async throws -> [Question]
+    func getQuestions() async throws -> IdentifiedArrayOf<Question>
     func submitAnswer(_ id: Int, _ answer: String) async throws -> Bool
 }
 
@@ -17,11 +19,11 @@ final class SurveyService: SurveyServiceProtocol {
         self.apiManager = apiManager
     }
     
-    func getQuestions() async throws -> [Question] {
+    func getQuestions() async throws -> IdentifiedArrayOf<Question> {
         let endpoint = SurveyEndPoint.getSurveyQuestions
         do {
             let response: [QuestionNetworkModel] = try await apiManager.makeNetworkCall(router: endpoint)
-            var questions = [Question]()
+            var questions: IdentifiedArrayOf<Question> = []
             response.forEach { item in
                 if let currentModel = Question.init(item: item) {
                     questions.append(currentModel)
