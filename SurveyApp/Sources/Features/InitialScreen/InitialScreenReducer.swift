@@ -7,7 +7,8 @@
 
 import ComposableArchitecture
 
-class InitialScreenReducer: Reducer {
+@Reducer
+class InitialScreenReducer {
     
     @ObservableState
     struct State: Equatable {

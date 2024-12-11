@@ -7,7 +7,8 @@
 
 import ComposableArchitecture
 
-class QuestionsScreenReducer: Reducer {
+@Reducer
+class QuestionsScreenReducer {
     
     @ObservableState
     struct State: Equatable {
